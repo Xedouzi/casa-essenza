@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Casa Essenza | Design de interiores por Thaís Alves, Cravinhos</title>
+<meta name="description" content="Design de interiores e acompanhamento de obra por Thaís Alves, em Cravinhos, SP. Projetos que partem da rotina e da história de quem mora.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1F19" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%236F7C60'/%3E%3Cpath%20d='M12%2030%2032%2013l20%2017M36%2031v20m0-20h11m-11%2010h12m-11%2010h13M36%2031c-7-2-15%202-16%209-1%206%205%2010%2010%206%203-2%205-5%206-7'%20fill='none'%20stroke='%23F3F1EA'%20stroke-width='2.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/abertura-1440.webp" imagesrcset="img/abertura-640.webp 640w, img/abertura-960.webp 960w, img/abertura-1440.webp 1440w" imagesizes="100vw">
+<style>
+/* v1 "Sálvia": Marcellus + Jost, branco com névoa da sálvia do logo, foto de ponta a ponta, arcos da porta da Casa Essenza.
+   Cores medidas: sálvia do logo #6F7C60; caramelo dos cards #9D6F50; texto marrom-oliva #4A4633. */
+:root {
+  --fundo: #FFFFFF;
+  --nevoa: #F1F3EC;
+  --cartao: #FFFFFF;
+  --texto: #3B3A2E;          /* 11,5:1 */
+  --texto-suave: #55544A;    /* 7,4:1 */
+  --salvia: #6F7C60;
+  --salvia-forte: #5A6650;   /* 6,1:1 */
+  --madeira: #8A5E40;        /* 5,6:1 */
+  --linha: #D9DDD0;
+  --linha-forte: #858E79;    /* 3,4:1 contorno de controle */
+  --sobre-salvia: #FFFFFF;
+  --veu: 33, 38, 28;
+  --a-preencher: #FFF3B0;
+  --a-preencher-texto: #3B3200;
+  --titulo: "Marcellus", "Marcellus reserva", Georgia, serif;
+  --corpo: "Jost", "Jost reserva", Arial, sans-serif;
+  --raio: 12px;
+  --largura: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --secao: clamp(64px, 9vw, 120px);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #1C1F19;
+    --nevoa: #242820;
+    --cartao: #242820;
+    --texto: #E9E5DC;
+    --texto-suave: #C9C3B5;
+    --salvia: #8E9C7E;
+    --salvia-forte: #A9B697;
+    --madeira: #C9A07F;
+    --linha: #3A4034;
+    --linha-forte: #7F8A72;
+    --sobre-salvia: #1C1F19;
+    --veu: 20, 23, 17;
+    --a-preencher: #5A4B00;
+    --a-preencher-texto: #FFF3B0;
+  }
+}
+@font-face { font-family: "Marcellus reserva"; src: local("Georgia"); size-adjust: 100%; }
+@font-face { font-family: "Jost reserva"; src: local("Arial"); size-adjust: 96%; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 400 1.125rem/1.6 var(--corpo); overflow-wrap: anywhere; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p { margin: 0 0 1em; }
+:focus-visible { outline: 3px solid var(--salvia-forte); outline-offset: 3px; border-radius: 4px; }
+.a-preencher { background: var(--a-preencher); color: var(--a-preencher-texto); padding: 0 .3em; border-radius: 4px; }
+.pular { position: absolute; left: 16px; top: -100px; z-index: 60; background: var(--fundo); color: var(--texto); padding: .6rem 1rem; border-radius: var(--raio); }
+.pular:focus { top: 12px; }
+.conteiner { width: min(100% - 2 * var(--gutter), var(--largura)); margin-inline: auto; }
+.secao { padding-block: var(--secao); }
+.secao-nevoa { background: var(--nevoa); }
+h2 { margin: 0 0 .5em; font: 400 clamp(2rem, 1.4rem + 2.4vw, 3.25rem)/1.1 var(--titulo); text-wrap: balance; }
+h3 { margin: 0 0 .4em; font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.15 var(--titulo); }
+.intro { max-width: 40rem; color: var(--texto-suave); font-size: 1.1875rem; }
+
+/* ===== Botões ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  min-height: 48px; max-width: 100%; padding: .7rem 1.4rem;
+  border-radius: 999px; border: 1px solid transparent;
+  font: 500 1rem/1.25 var(--corpo); text-decoration: none; text-align: center; cursor: pointer;
+}
+.btn svg { flex: none; width: 20px; height: 20px; }
+.btn-principal { background: var(--salvia-forte); color: var(--sobre-salvia); }
+.btn-principal:hover { background: var(--salvia); }
+.btn-secundario { background: transparent; color: var(--salvia-forte); border-color: var(--linha-forte); }
+.btn-secundario:hover { background: var(--nevoa); }
+.btn-claro { background: #FFFFFF; color: #2E3327; }
+.btn-claro:hover { background: #EEF1E8; }
+.btn-contorno { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.85); }
+.btn-contorno:hover { background: rgba(255,255,255,.12); }
+
+/* ===== Topo ===== */
+.topo { position: absolute; inset: 0 0 auto 0; z-index: 10; color: #FFFFFF; }
+.topo-linha { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 84px; padding-block: 14px; }
+.marca { display: inline-flex; align-items: center; gap: .8rem; text-decoration: none; min-width: 0; }
+.marca svg { width: 44px; height: 46px; flex: none; }
+.marca-nome { display: grid; line-height: 1.15; min-width: 0; }
+.marca-nome b { font-weight: 300; letter-spacing: .2em; font-size: 1.05rem; }
+.marca-nome span { font-size: .875rem; letter-spacing: .02em; }
+.menu { display: flex; align-items: center; gap: .25rem; }
+.menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .75rem; text-decoration: none; font-size: 1rem; border-radius: 999px; }
+.menu a:hover { background: rgba(255,255,255,.14); }
+.menu .btn { margin-left: .5rem; }
+.menu-abrir { display: none; }
+@media (max-width: 1000px) {
+  .menu { display: none; }
+  .menu-abrir {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; flex: none;
+    background: transparent; color: inherit; font: 500 1rem var(--corpo);
+    border: 1px solid rgba(255,255,255,.85); border-radius: 999px; cursor: pointer;
+  }
+  .topo.aberto .menu {
+    display: grid; position: absolute; top: 76px; left: var(--gutter); right: var(--gutter);
+    padding: .5rem; gap: 0; background: var(--fundo); color: var(--texto);
+    border: 1px solid var(--linha); border-radius: var(--raio);
+  }
+  .topo.aberto .menu a:hover { background: var(--nevoa); }
+  .topo.aberto .menu .btn { margin: .5rem 0 0; background: var(--salvia-forte); color: var(--sobre-salvia); }
+}
+
+/* ===== Abertura ===== */
+.abertura { position: relative; isolation: isolate; min-height: max(560px, 100svh); display: flex; align-items: flex-end; color: #FFFFFF; }
+.abertura-foto { position: absolute; inset: 0; z-index: -2; }
+.abertura-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 38% 50%; }
+.abertura::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(var(--veu), .8) 0, rgba(var(--veu), .55) 84px, rgba(var(--veu), 0) 190px),
+    linear-gradient(90deg, rgba(var(--veu), .86) 0, rgba(var(--veu), .62) 38%, rgba(var(--veu), 0) 72%);
+}
+.abertura-texto { padding-block: 140px 96px; }
+.abertura-texto > div { max-width: 36rem; }
+.abertura-local { margin: 0 0 1rem; font-size: 1.0625rem; }
+.abertura h1 { margin: 0; font: 400 clamp(2.4rem, 1.4rem + 4.2vw, 4.6rem)/1.06 var(--titulo); text-wrap: balance; }
+.abertura-resumo { margin: 1.25rem 0 0; font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); max-width: 31rem; }
+.abertura-acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.abertura-legenda { position: absolute; right: var(--gutter); bottom: 20px; max-width: 26rem; margin: 0; padding: .3rem .65rem; border-radius: 6px; background: rgba(var(--veu), .78); font-size: .875rem; line-height: 1.4; }
+@media (max-width: 700px) {
+  .abertura { min-height: max(600px, 100svh); }
+  .abertura::before {
+    background:
+      linear-gradient(180deg, rgba(var(--veu), .6) 0, rgba(var(--veu), 0) 150px),
+      linear-gradient(0deg, rgba(var(--veu), .92) 0, rgba(var(--veu), .84) 50%, rgba(var(--veu), 0) 84%);
+  }
+  .abertura-texto { padding-block: 120px 88px; }
+  .abertura-legenda { left: var(--gutter); right: var(--gutter); width: fit-content; max-width: none; bottom: 18px; }
+  .marca-nome span { display: none; }
+}
+@media (max-width: 380px) {
+  .abertura-acoes .btn { width: 100%; }
+  .marca svg { width: 38px; height: 40px; }
+  .marca-nome b { letter-spacing: .14em; font-size: .95rem; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .abertura { min-height: 0; }
+  .abertura-texto { padding-block: 92px 64px; }
+  .abertura-local { display: none; }
+  .abertura h1 { font-size: clamp(1.9rem, 1.2rem + 3vw, 2.8rem); }
+  .abertura-resumo { margin-top: .75rem; }
+  .abertura-acoes { margin-top: 1.25rem; }
+  .abertura-legenda { bottom: 12px; }
+}
+
+/* ===== A casa ===== */
+.casa-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.casa-texto p { color: var(--texto-suave); }
+.casa-texto .nota { font-size: 1rem; }
+.arcos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); align-items: end; margin: 0; padding: 0; list-style: none; }
+.arcos li:nth-child(2) { margin-bottom: clamp(24px, 4vw, 56px); }
+.arcos figure { margin: 0; }
+.arcos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 999px 999px var(--raio) var(--raio); }
+.arcos figcaption { margin-top: .6rem; font-size: .9375rem; color: var(--texto-suave); line-height: 1.35; }
+@media (max-width: 860px) {
+  .casa-grade { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .arcos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .arcos li:first-child { grid-column: 1 / -1; }
+  .arcos li:first-child img { aspect-ratio: 4 / 5; border-radius: 999px 999px var(--raio) var(--raio) / 60% 60% var(--raio) var(--raio); }
+  .arcos li:nth-child(2) { margin-bottom: 0; }
+}
+
+/* ===== Projetos ===== */
+.destaque { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 56px); align-items: center; margin-top: clamp(32px, 4vw, 48px); }
+.destaque img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--raio); }
+.ficha { display: grid; gap: .75rem; margin: 1.25rem 0 1.5rem; }
+.ficha div { display: grid; grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr); gap: 1rem; padding-top: .75rem; border-top: 1px solid var(--linha); }
+.ficha dt { color: var(--texto-suave); font-size: 1rem; }
+.ficha dd { margin: 0; font-size: 1rem; }
+.outros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); margin-top: clamp(48px, 6vw, 80px); }
+.projeto-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--raio); }
+.projeto-card h3 { margin-top: 1rem; }
+.projeto-card p { color: var(--texto-suave); }
+.selo { display: inline-block; margin: .9rem 0 0; font-size: .9375rem; color: var(--madeira); }
+@media (max-width: 860px) {
+  .destaque, .outros { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .ficha div { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
+}
+
+/* ===== Ficha do projeto (dialog) ===== */
+.janela {
+  width: min(100% - 24px, 1080px); max-height: calc(100dvh - 24px); padding: 0;
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  background: var(--fundo); color: var(--texto);
+}
+.janela::backdrop { background: rgba(20, 23, 17, .72); }
+.janela-topo { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 12px 16px 12px clamp(16px, 3vw, 32px); background: var(--fundo); border-bottom: 1px solid var(--linha); }
+.janela-topo h2 { margin: 0; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem); }
+.fechar { flex: none; width: 48px; height: 48px; border-radius: 999px; border: 1px solid var(--linha-forte); background: transparent; color: var(--texto); cursor: pointer; display: grid; place-items: center; }
+.fechar svg { width: 20px; height: 20px; }
+.janela-corpo { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: clamp(20px, 3vw, 40px); padding: clamp(16px, 3vw, 32px); }
+.galeria { display: grid; gap: 12px; }
+.galeria img { width: 100%; border-radius: var(--raio); }
+.galeria figure { margin: 0; }
+.galeria figcaption { margin-top: .4rem; font-size: .9375rem; color: var(--texto-suave); }
+.janela-texto { align-self: start; position: sticky; top: 92px; }
+.janela-texto p { color: var(--texto-suave); }
+.janela-acoes { display: flex; flex-wrap: wrap; gap: .75rem; }
+@media (max-width: 760px) {
+  .janela-corpo { grid-template-columns: minmax(0, 1fr); }
+  .janela-texto { position: static; }
+}
+
+/* ===== Como trabalhamos ===== */
+.etapas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin: clamp(32px, 4vw, 48px) 0 0; padding: 0; list-style: none; }
+.etapas li { border-top: 1px solid var(--linha-forte); padding-top: 1.25rem; }
+.etapa-num { display: block; font: 400 2.5rem/1 var(--titulo); color: var(--salvia-forte); margin-bottom: .75rem; }
+.etapas h3 { font-size: 1.5rem; }
+.etapas p { color: var(--texto-suave); font-size: 1.0625rem; }
+.etapas-nota { margin-top: 2rem; font-size: 1rem; }
+@media (max-width: 960px) { .etapas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .etapas { grid-template-columns: minmax(0, 1fr); } }
+
+/* ===== Como você quer se sentir em casa? ===== */
+.sentir-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: clamp(32px, 4vw, 48px); }
+.passo { margin: 0; padding: 0; border: 0; min-width: 0; }
+.passo legend { display: grid; gap: .25rem; padding: 0; margin-bottom: 1rem; width: 100%; }
+.passo-num { font: 400 1.25rem/1 var(--titulo); color: var(--salvia-forte); }
+.passo-titulo { font: 400 1.5rem/1.2 var(--titulo); }
+.opcoes { display: flex; flex-wrap: wrap; gap: .5rem; }
+.opcao { position: relative; display: inline-flex; max-width: 100%; }
+.opcao input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.opcao span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: .5rem 1rem;
+  border: 1px solid var(--linha-forte); border-radius: 999px; font-size: 1rem; line-height: 1.25;
+}
+.opcao input:hover + span { background: var(--nevoa); }
+.opcao input:checked + span { background: var(--salvia-forte); border-color: var(--salvia-forte); color: var(--sobre-salvia); }
+.opcao input:focus-visible + span { outline: 3px solid var(--salvia-forte); outline-offset: 3px; }
+.campo { display: grid; gap: .4rem; margin-top: 1rem; font-size: 1rem; }
+.campo input {
+  min-height: 48px; width: 100%; padding: .6rem .9rem; font: 400 1rem var(--corpo); color: var(--texto);
+  background: var(--fundo); border: 1px solid var(--linha-forte); border-radius: var(--raio);
+}
+.previa { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem 2rem; align-items: end; margin-top: clamp(32px, 4vw, 48px); padding: clamp(20px, 3vw, 32px); background: var(--nevoa); border-radius: var(--raio); }
+.previa h3 { font-size: 1.25rem; margin-bottom: .5rem; }
+.previa output { display: block; white-space: pre-line; font-size: 1.0625rem; }
+.previa-aviso { grid-column: 1 / -1; margin: 0; font-size: .9375rem; color: var(--texto-suave); }
+@media (max-width: 900px) {
+  .sentir-grade { grid-template-columns: minmax(0, 1fr); }
+  .previa { grid-template-columns: minmax(0, 1fr); }
+  .previa .btn { justify-self: start; }
+}
+
+/* ===== Contato ===== */
+.contato-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.contato-lista { display: grid; gap: 1.25rem; margin: 1.5rem 0 0; }
+.contato-lista div { display: grid; gap: .15rem; }
+.contato-lista dt { font-size: 1rem; color: var(--texto-suave); }
+.contato-lista dd { margin: 0; font-size: 1.125rem; }
+.contato-lista a { text-underline-offset: 3px; }
+.zap-grande { font: 400 clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem)/1.2 var(--titulo); text-decoration: none; color: var(--salvia-forte); }
+.mapa-vaga { display: grid; place-items: center; min-height: 320px; padding: 24px; text-align: center; border-radius: var(--raio); background: var(--a-preencher); color: var(--a-preencher-texto); }
+@media (max-width: 860px) { .contato-grade { grid-template-columns: minmax(0, 1fr); } .mapa-vaga { min-height: 200px; } }
+
+/* ===== Rodapé ===== */
+.rodape { padding-block: 28px; border-top: 1px solid var(--linha); font-size: .9375rem; color: var(--texto-suave); }
+.rodape .conteiner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; }
+.rodape p { margin: 0; }
+.rodape a { text-underline-offset: 3px; }
+
+/* ===== WhatsApp flutuante (só computador) e barra do celular ===== */
+.zap-flutuante {
+  position: fixed; right: 24px; bottom: 24px; z-index: 30;
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 52px; padding: 0 1.2rem;
+  border-radius: 999px; background: #179A48; color: #FFFFFF; text-decoration: none; font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s;
+}
+.zap-flutuante svg { width: 22px; height: 22px; }
+.zap-flutuante.visivel { opacity: 1; transform: none; pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) { .zap-flutuante { transition: none; } }
+.barra-celular { display: none; }
+@media (max-width: 900px), (pointer: coarse) and (max-width: 1100px) {
+  .zap-flutuante { display: none; }
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .barra-celular {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 8px;
+    position: fixed; inset: auto 0 0 0; z-index: 40;
+    padding: 8px var(--gutter) calc(8px + env(safe-area-inset-bottom));
+    background: var(--fundo); border-top: 1px solid var(--linha);
+  }
+  .barra-celular .btn { min-height: 48px; padding-inline: .75rem; }
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="conteiner topo-linha">
+    <a class="marca" href="#" aria-label="Casa Essenza, por Thaís Alves: início">
+      <!-- Monograma redesenhado do logo da Casa Essenza (telhado + ligadura CE). Trocar pelo vetor original quando ela enviar. -->
+      <svg viewBox="0 0 64 66" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 26 32 4l27 22"/>
+        <path d="M37 27v31M37 27h14M37 42h15M37 58h16"/>
+        <path d="M37 27c-9-3-20 2-22 12-2 9 5 16 12 12 5-3 8-8 10-12"/>
+      </svg>
+      <span class="marca-nome"><b>CASA ESSENZA</b><span>por Thaís Alves</span></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Seções">
+      <a href="#casa">A casa</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#como-trabalhamos">Como trabalhamos</a>
+      <a href="#sentir">Como quer se sentir</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-claro" href="https://wa.me/5516991576926">Conversar no WhatsApp</a>
+    </nav>
+    <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="abertura" aria-labelledby="abertura-titulo">
+    <picture class="abertura-foto">
+      <img src="img/abertura-1440.webp"
+           srcset="img/abertura-640.webp 640w, img/abertura-960.webp 960w, img/abertura-1440.webp 1440w"
+           sizes="100vw" width="1440" height="975" fetchpriority="high"
+           alt="Loft com cozinha aberta, bancada de pedra, banquetas de madeira, luminárias de fibra natural e painel vazado de madeira">
+    </picture>
+    <div class="conteiner abertura-texto">
+      <div>
+        <p class="abertura-local">Design de interiores em Cravinhos, SP</p>
+        <h1 id="abertura-titulo">Projetos que começam pelo que você já tem</h1>
+        <p class="abertura-resumo">Reformas e interiores pensados para a rotina da sua família, preservando os móveis, os objetos e as histórias que fazem da casa um lar.</p>
+        <div class="abertura-acoes">
+          <a class="btn btn-claro" href="https://wa.me/5516991576926">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+            Conversar no WhatsApp
+          </a>
+          <a class="btn btn-contorno" href="#projetos">Ver projetos</a>
+        </div>
+      </div>
+    </div>
+    <p class="abertura-legenda">Refúgio da Chef Indígena, CASACOR Ribeirão Preto 2023. Foto: <span class="a-preencher">nome do fotógrafo</span></p>
+  </section>
+
+  <section class="secao secao-nevoa" id="casa" aria-labelledby="casa-titulo">
+    <div class="conteiner casa-grade">
+      <div class="casa-texto">
+        <h2 id="casa-titulo">A casa onde eu cresci</h2>
+        <p>A Casa Essenza é a casa da minha infância, onde vivi momentos importantes e onde tantas memórias da minha família foram construídas.</p>
+        <p>Reformá-la nunca poderia significar começar do zero. Preservamos elementos, móveis e detalhes que carregam histórias, e transformamos a casa em um espaço de criação e pertencimento. É assim que eu acredito que todo projeto deve começar.</p>
+        <p class="nota">Os revestimentos, louças e metais foram escolhidos com a Premium Acabamentos, e as pedras vieram do Comércio de Pedras Paraíso.</p>
+        <p class="nota"><span class="a-preencher">Inauguração: data a confirmar. Endereço: a confirmar.</span></p>
+      </div>
+      <ul class="arcos" aria-label="Ambientes da Casa Essenza">
+        <li><figure><img src="img/casa-fachada-480.webp" srcset="img/casa-fachada-480.webp 480w, img/casa-fachada-720.webp 720w" sizes="(max-width: 520px) 92vw, (max-width: 860px) 30vw, 22vw" width="480" height="647" loading="lazy" alt="Thaís Alves diante da porta de madeira amarela em arco, com grade azul-clara"><figcaption>A fachada e a porta em arco</figcaption></figure></li>
+        <li><figure><img src="img/casa-saomiguel-480.webp" srcset="img/casa-saomiguel-480.webp 480w, img/casa-saomiguel-720.webp 720w" sizes="(max-width: 520px) 46vw, (max-width: 860px) 30vw, 22vw" width="480" height="648" loading="lazy" alt="Imagem de São Miguel entre plantas, ao ar livre"><figcaption>O cantinho de São Miguel</figcaption></figure></li>
+        <li><figure><img src="img/casa-sala-480.webp" srcset="img/casa-sala-480.webp 480w, img/casa-sala-720.webp 720w" sizes="(max-width: 520px) 46vw, (max-width: 860px) 30vw, 22vw" width="480" height="648" loading="lazy" alt="Sofá claro com almofadas e quadros antigos na parede"><figcaption>A sala</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="projetos" aria-labelledby="projetos-titulo">
+    <div class="conteiner">
+      <h2 id="projetos-titulo">Projetos</h2>
+      <p class="intro">Cada projeto parte da rotina de quem mora e do que já existe na casa.</p>
+
+      <article class="destaque" aria-labelledby="p1-titulo">
+        <img src="img/casacor-sala-960.webp" srcset="img/casacor-sala-640.webp 640w, img/casacor-sala-960.webp 960w, img/casacor-sala-1440.webp 1440w" sizes="(max-width: 860px) 92vw, 58vw" width="960" height="644" loading="lazy" alt="Sala do loft com sofá branco de formas orgânicas, painel vazado de madeira e jardim vertical ao fundo">
+        <div>
+          <h3 id="p1-titulo">Refúgio da Chef Indígena</h3>
+          <p>Ambiente da CASACOR Ribeirão Preto 2023 em homenagem à chef Kalymaracaya Nogueira, descendente do povo Terena. O conceito é a biofilia: a natureza dentro de casa, com madeira, fibras naturais e muitas plantas.</p>
+          <dl class="ficha">
+            <div><dt>Mostra</dt><dd>CASACOR Ribeirão Preto 2023, tema Corpo &amp; Morada</dd></div>
+            <div><dt>Ambiente</dt><dd>Loft com cozinha, sala e jardim vertical</dd></div>
+            <div><dt>Prêmios</dt><dd><span class="a-preencher">quais prêmios e de quem</span></dd></div>
+          </dl>
+          <a class="btn btn-principal" href="#refugio-da-chef-indigena">Ver o projeto</a>
+        </div>
+      </article>
+
+      <div class="outros">
+        <article class="projeto-card" aria-labelledby="p2-titulo">
+          <img src="img/kairos-living-1200.webp" srcset="img/kairos-living-640.webp 640w, img/kairos-living-1200.webp 1200w" sizes="(max-width: 860px) 92vw, 45vw" width="1200" height="1179" loading="lazy" alt="Imagem 3D do living com estante em arcos, lareira e mesa de centro orgânica">
+          <p class="selo">Imagens do projeto em 3D</p>
+          <h3 id="p2-titulo">AP Kairós</h3>
+          <p>Sala e living para um casal, com a estante de madeira que já era deles incorporada ao projeto.</p>
+          <a class="btn btn-secundario" href="#ap-kairos">Ver o projeto</a>
+        </article>
+        <article class="projeto-card" aria-labelledby="p3-titulo">
+          <img src="img/gourmet-panorama-960.webp" srcset="img/gourmet-panorama-640.webp 640w, img/gourmet-panorama-960.webp 960w, img/gourmet-panorama-1440.webp 1440w" sizes="(max-width: 860px) 92vw, 45vw" width="960" height="600" loading="lazy" alt="Imagem 3D da área gourmet com ilha de pedra, banquetas cor de terracota e churrasqueira revestida de pedra">
+          <p class="selo">Imagens do projeto em 3D</p>
+          <h3 id="p3-titulo">Gourmet com história</h3>
+          <p>Mesa, cadeiras, cristaleira e estante da família ganharam novos lugares ao lado dos móveis planejados.</p>
+          <a class="btn btn-secundario" href="#gourmet-com-historia">Ver o projeto</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao secao-nevoa" id="como-trabalhamos" aria-labelledby="como-titulo">
+    <div class="conteiner">
+      <h2 id="como-titulo">Como trabalhamos</h2>
+      <p class="intro">Do primeiro café à casa pronta para ser vivida.</p>
+      <ol class="etapas">
+        <li><span class="etapa-num" aria-hidden="true">1</span><h3>Conversa</h3><p>Entendemos a rotina da família, o que incomoda hoje e o que já existe e merece ficar.</p></li>
+        <li><span class="etapa-num" aria-hidden="true">2</span><h3>Projeto</h3><p>Definimos layout, materiais e iluminação, com imagens em 3D para você ver o ambiente antes da obra.</p></li>
+        <li><span class="etapa-num" aria-hidden="true">3</span><h3>Obra</h3><p>Acompanhamos a execução junto aos fornecedores e prestadores de serviço.</p></li>
+        <li><span class="etapa-num" aria-hidden="true">4</span><h3>Entrega</h3><p>Cuidamos dos últimos detalhes para que cada ambiente fique pronto para o dia a dia.</p></li>
+      </ol>
+      <p class="etapas-nota"><span class="a-preencher">Etapas a confirmar com a Thaís (e se há consultoria avulsa).</span></p>
+    </div>
+  </section>
+
+  <section class="secao" id="sentir" aria-labelledby="sentir-titulo">
+    <div class="conteiner">
+      <h2 id="sentir-titulo">Como você quer se sentir em casa?</h2>
+      <p class="intro">Escolha o ambiente, a sensação que procura e o que gostaria de manter. Montamos a mensagem para você enviar pelo WhatsApp.</p>
+      <form class="sentir" id="form-sentir" novalidate>
+        <div class="sentir-grade">
+          <fieldset class="passo">
+            <legend><span class="passo-num">1</span><span class="passo-titulo">Qual ambiente?</span></legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="radio" name="ambiente" value="a sala"><span>Sala</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="a cozinha ou a área gourmet"><span>Cozinha ou gourmet</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="o quarto"><span>Quarto</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="o banheiro"><span>Banheiro</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="o escritório em casa"><span>Escritório em casa</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="a área externa"><span>Área externa</span></label>
+              <label class="opcao"><input type="radio" name="ambiente" value="a casa toda"><span>A casa toda</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend><span class="passo-num">2</span><span class="passo-titulo">Que sensação você procura?</span></legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="checkbox" name="sensacao" value="descanso"><span>Descanso</span></label>
+              <label class="opcao"><input type="checkbox" name="sensacao" value="aconchego"><span>Aconchego</span></label>
+              <label class="opcao"><input type="checkbox" name="sensacao" value="espaço para receber"><span>Receber bem</span></label>
+              <label class="opcao"><input type="checkbox" name="sensacao" value="foco"><span>Foco</span></label>
+              <label class="opcao"><input type="checkbox" name="sensacao" value="organização"><span>Organização</span></label>
+              <label class="opcao"><input type="checkbox" name="sensacao" value="leveza"><span>Leveza</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend><span class="passo-num">3</span><span class="passo-titulo">O que você quer manter?</span></legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="checkbox" name="manter" value="móveis de família"><span>Móveis de família</span></label>
+              <label class="opcao"><input type="checkbox" name="manter" value="peças com história"><span>Peças com história</span></label>
+              <label class="opcao"><input type="checkbox" name="manter" value="quadros e objetos de arte"><span>Quadros e arte</span></label>
+              <label class="opcao"><input type="checkbox" name="manter" value="plantas"><span>Plantas</span></label>
+            </div>
+            <label class="campo">Algo mais que você queira contar? (opcional)
+              <input type="text" name="extra" maxlength="160" autocomplete="off">
+            </label>
+          </fieldset>
+        </div>
+        <div class="previa">
+          <div>
+            <h3>A mensagem vai assim</h3>
+            <output id="previa-texto" for="form-sentir" aria-live="polite"></output>
+          </div>
+          <a class="btn btn-principal" id="previa-enviar" href="https://wa.me/5516991576926">Enviar pelo WhatsApp</a>
+          <p class="previa-aviso">Nada é enviado por este site: o botão abre o seu WhatsApp com o texto pronto, e você pode editar antes de mandar.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="secao secao-nevoa" id="contato" aria-labelledby="contato-titulo">
+    <div class="conteiner contato-grade">
+      <div>
+        <h2 id="contato-titulo">Contato</h2>
+        <a class="zap-grande" href="https://wa.me/5516991576926">(16) 99157-6926</a>
+        <dl class="contato-lista">
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/thaisalves_interiores/">@thaisalves_interiores</a> e <a href="https://www.instagram.com/acasa.essenza/">@acasa.essenza</a></dd></div>
+          <div><dt>Endereço da Casa Essenza</dt><dd><span class="a-preencher">rua, número e bairro, Cravinhos, SP</span></dd></div>
+          <div><dt>Atendimento</dt><dd><span class="a-preencher">dias e horários</span></dd></div>
+        </dl>
+      </div>
+      <div class="mapa-vaga"><p>O mapa entra aqui quando o endereço da Casa Essenza estiver confirmado.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="conteiner">
+    <p>Casa Essenza, por Thaís Alves, designer de interiores. Cravinhos, SP.</p>
+    <p>T.A. Design, Serviços e Comércio Ltda, CNPJ 39.230.464/0001-20</p>
+  </div>
+</footer>
+
+<!-- Fichas dos projetos: cada uma tem link próprio (#id). -->
+<dialog class="janela" id="refugio-da-chef-indigena" aria-labelledby="j1-titulo">
+  <div class="janela-topo"><h2 id="j1-titulo">Refúgio da Chef Indígena</h2><button class="fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <div class="janela-corpo">
+    <div class="galeria">
+      <figure><img src="img/casacor-cozinha-960.webp" srcset="img/casacor-cozinha-640.webp 640w, img/casacor-cozinha-960.webp 960w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="650" loading="lazy" alt="Cozinha do loft com bancada de pedra, banquetas de madeira e luminárias de fibra natural"></figure>
+      <figure><img src="img/casacor-sala-960.webp" srcset="img/casacor-sala-640.webp 640w, img/casacor-sala-960.webp 960w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="644" loading="lazy" alt="Sala com sofá orgânico branco, poltronas de fibra e jardim vertical"></figure>
+      <figure><img src="img/thais-chef-800.webp" srcset="img/thais-chef-480.webp 480w, img/thais-chef-800.webp 800w" sizes="(max-width: 760px) 92vw, 600px" width="800" height="800" loading="lazy" alt="Thaís Alves e a chef Kalymaracaya Nogueira, de cocar, conversando com o público"><figcaption>Com a chef Kalymaracaya Nogueira, homenageada do ambiente.</figcaption></figure>
+    </div>
+    <div class="janela-texto">
+      <p>O loft foi pensado como o refúgio de uma chef: cozinha aberta para o encontro, sala para o descanso e a natureza presente em todos os cantos. A biofilia guiou as escolhas, do painel vazado de madeira às luminárias de fibra e ao jardim vertical.</p>
+      <dl class="ficha">
+        <div><dt>Mostra</dt><dd>CASACOR Ribeirão Preto 2023 (5ª edição), tema Corpo &amp; Morada</dd></div>
+        <div><dt>Homenagem</dt><dd>Chef Kalymaracaya Nogueira, descendente do povo Terena</dd></div>
+        <div><dt>Revestimentos</dt><dd>Porcelanatos Gaya Green e Basalto Sand, da Villagres</dd></div>
+        <div><dt>Macramê</dt><dd>Anne Twiggy, Namacrê Design</dd></div>
+        <div><dt>Prêmios</dt><dd><span class="a-preencher">quais prêmios e de quem</span></dd></div>
+        <div><dt>Fotos</dt><dd><span class="a-preencher">nome do fotógrafo</span></dd></div>
+      </dl>
+      <div class="janela-acoes"><a class="btn btn-principal" href="https://wa.me/5516991576926?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Vi%20o%20Ref%C3%BAgio%20da%20Chef%20Ind%C3%ADgena%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.">Quero um projeto assim</a></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="ap-kairos" aria-labelledby="j2-titulo">
+  <div class="janela-topo"><h2 id="j2-titulo">AP Kairós</h2><button class="fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <div class="janela-corpo">
+    <div class="galeria">
+      <figure><img src="img/kairos-living-1200.webp" srcset="img/kairos-living-640.webp 640w, img/kairos-living-1200.webp 1200w" sizes="(max-width: 760px) 92vw, 600px" width="1200" height="1179" loading="lazy" alt="Imagem 3D do living com estante em arcos e lareira"></figure>
+      <figure><img src="img/kairos-estante-1200.webp" srcset="img/kairos-estante-640.webp 640w, img/kairos-estante-1200.webp 1200w" sizes="(max-width: 760px) 92vw, 600px" width="1200" height="1179" loading="lazy" alt="Imagem 3D de parede com composição de quadros e trilho de luz"></figure>
+      <figure><img src="img/kairos-quarto-960.webp" srcset="img/kairos-quarto-640.webp 640w, img/kairos-quarto-960.webp 960w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="1200" loading="lazy" alt="Imagem 3D do quarto de hóspedes com papel de parede xadrez e cabeceira de madeira"></figure>
+    </div>
+    <div class="janela-texto">
+      <p>Um apartamento novo, pensado para uma vida que já existe. A sala e o living têm estética sofisticada e acolhedora, e a estante de madeira do casal foi incorporada ao projeto em vez de substituída.</p>
+      <p>No quarto de hóspedes, a madeira e os tons de marrom, bege e off-white recebem um papel de parede xadrez na cabeceira, com closet integrado e luz pontual ao lado da cama.</p>
+      <dl class="ficha">
+        <div><dt>Ambientes</dt><dd>Sala, living e quarto de hóspedes</dd></div>
+        <div><dt>Mantido</dt><dd>Estante de madeira do casal</dd></div>
+        <div><dt>Imagens</dt><dd>Imagens do projeto em 3D</dd></div>
+      </dl>
+      <div class="janela-acoes"><a class="btn btn-principal" href="https://wa.me/5516991576926?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Vi%20o%20AP%20Kair%C3%B3s%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.">Quero um projeto assim</a></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="gourmet-com-historia" aria-labelledby="j3-titulo">
+  <div class="janela-topo"><h2 id="j3-titulo">Gourmet com história</h2><button class="fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <div class="janela-corpo">
+    <div class="galeria">
+      <figure><img src="img/gourmet-panorama-960.webp" srcset="img/gourmet-panorama-640.webp 640w, img/gourmet-panorama-960.webp 960w, img/gourmet-panorama-1440.webp 1440w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="600" loading="lazy" alt="Imagem 3D da área gourmet com ilha de pedra, banquetas terracota e churrasqueira revestida de pedra"></figure>
+      <figure><img src="img/gourmet-familia-960.webp" srcset="img/gourmet-familia-640.webp 640w, img/gourmet-familia-960.webp 960w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="508" loading="lazy" alt="Imagem 3D da sala de jantar com a cristaleira e a mesa de madeira da família"><figcaption>A cristaleira e a mesa da família no novo projeto.</figcaption></figure>
+      <figure><img src="img/gourmet-materiais-960.webp" srcset="img/gourmet-materiais-640.webp 640w, img/gourmet-materiais-960.webp 960w" sizes="(max-width: 760px) 92vw, 600px" width="960" height="1200" loading="lazy" alt="Composição de amostras: pedra, madeiras, mármore claro e revestimento terracota"><figcaption>Materiais do projeto.</figcaption></figure>
+    </div>
+    <div class="janela-texto">
+      <p>O desafio foi renovar o espaço sem apagar a identidade dos moradores. A mesa, as cadeiras, a cristaleira, a estante e outros móveis que atravessaram gerações ganharam novos lugares, ao lado de móveis planejados pensados para a rotina atual da família.</p>
+      <dl class="ficha">
+        <div><dt>Ambiente</dt><dd>Área gourmet e jantar</dd></div>
+        <div><dt>Mantido</dt><dd>Mesa, cadeiras, cristaleira e estante da família</dd></div>
+        <div><dt>Imagens</dt><dd>Imagens do projeto em 3D</dd></div>
+      </dl>
+      <div class="janela-acoes"><a class="btn btn-principal" href="https://wa.me/5516991576926?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Vi%20o%20projeto%20do%20gourmet%20no%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.">Quero um projeto assim</a></div>
+    </div>
+  </div>
+</dialog>
+
+<a class="zap-flutuante" href="https://wa.me/5516991576926" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+  WhatsApp
+</a>
+<nav class="barra-celular" aria-label="Contato rápido">
+  <a class="btn btn-secundario" href="tel:+5516991576926">Ligar</a>
+  <a class="btn btn-principal" href="https://wa.me/5516991576926">WhatsApp</a>
+</nav>
+
+<script>
+(() => {
+  const ZAP = "5516991576926";
+
+  /* Menu do celular */
+  const topo = document.querySelector(".topo");
+  const botao = topo.querySelector(".menu-abrir");
+  const fechar = () => { topo.classList.remove("aberto"); botao.setAttribute("aria-expanded", "false"); botao.textContent = "Menu"; };
+  botao.addEventListener("click", () => {
+    if (topo.classList.contains("aberto")) return fechar();
+    topo.classList.add("aberto"); botao.setAttribute("aria-expanded", "true"); botao.textContent = "Fechar";
+  });
+  topo.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", fechar));
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && topo.classList.contains("aberto")) { fechar(); botao.focus(); } });
+
+  /* Fichas dos projetos com link próprio */
+  const janelas = [...document.querySelectorAll("dialog.janela")];
+  let origem = null;
+  const abrirJanela = (id, deQuem) => {
+    const j = document.getElementById(id);
+    if (!j || j.open) return;
+    origem = deQuem || null;
+    j.showModal();
+  };
+  janelas.forEach(j => {
+    j.querySelector(".fechar").addEventListener("click", () => j.close());
+    j.addEventListener("click", e => { if (e.target === j) j.close(); });
+    j.addEventListener("close", () => {
+      if (location.hash === "#" + j.id) history.replaceState(null, "", location.pathname + location.search);
+      if (origem) origem.focus();
+    });
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    const id = a.getAttribute("href").slice(1);
+    if (!janelas.some(j => j.id === id)) return;
+    a.addEventListener("click", e => { e.preventDefault(); history.pushState(null, "", "#" + id); abrirJanela(id, a); });
+  });
+  const pelaUrl = () => {
+    const id = location.hash.slice(1);
+    janelas.forEach(j => { if (j.open && j.id !== id) j.close(); });
+    if (janelas.some(j => j.id === id)) abrirJanela(id);
+  };
+  window.addEventListener("popstate", pelaUrl);
+  pelaUrl();
+
+  /* Como você quer se sentir em casa? */
+  const form = document.getElementById("form-sentir");
+  const saida = document.getElementById("previa-texto");
+  const enviar = document.getElementById("previa-enviar");
+  const lista = itens => itens.length < 2 ? (itens[0] || "") : itens.slice(0, -1).join(", ") + " e " + itens[itens.length - 1];
+  const montar = () => {
+    const d = new FormData(form);
+    const ambiente = d.get("ambiente");
+    const sensacoes = d.getAll("sensacao");
+    const manter = d.getAll("manter");
+    const extra = (d.get("extra") || "").trim();
+    const linhas = ["Olá, Thaís! Vim pelo site da Casa Essenza."];
+    linhas.push(ambiente ? `Quero repensar ${ambiente}.` : "Quero repensar um ambiente da minha casa.");
+    if (sensacoes.length) linhas.push(`Gostaria de sentir ${lista(sensacoes)}.`);
+    if (manter.length) linhas.push(`Quero manter ${lista(manter)}.`);
+    if (extra) linhas.push(extra.endsWith(".") ? extra : extra + ".");
+    linhas.push("Podemos conversar?");
+    const texto = linhas.join("\n");
+    saida.textContent = texto;
+    enviar.href = `https://wa.me/${ZAP}?text=${encodeURIComponent(texto)}`;
+  };
+  form.addEventListener("input", montar);
+  form.addEventListener("submit", e => e.preventDefault());
+  montar();
+
+  /* WhatsApp flutuante: aparece depois da abertura e some no rodapé */
+  const flutuante = document.querySelector(".zap-flutuante");
+  const abertura = document.querySelector(".abertura");
+  const rodape = document.querySelector(".rodape");
+  let passouAbertura = false, noRodape = false;
+  const atualizar = () => flutuante.classList.toggle("visivel", passouAbertura && !noRodape);
+  new IntersectionObserver(([e]) => { passouAbertura = !e.isIntersecting; atualizar(); }).observe(abertura);
+  new IntersectionObserver(([e]) => { noRodape = e.isIntersecting; atualizar(); }).observe(rodape);
+})();
+</script>
+</body>
+</html>
