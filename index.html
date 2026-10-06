@@ -212,6 +212,20 @@ h3 { margin: 0 0 .4em; font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.15 var(--t
   background: var(--fundo); color: var(--texto);
 }
 .janela::backdrop { background: rgba(20, 23, 17, .72); }
+/* abrir e fechar com transicao: a janela sobe um pouco e o fundo escurece aos poucos */
+@media (prefers-reduced-motion: no-preference) {
+  .janela[open] { animation: janela-entra .38s cubic-bezier(.2, .7, .2, 1); }
+  .janela[open]::backdrop { animation: fundo-entra .38s ease; }
+  .janela.saindo { animation: janela-sai .24s ease-in forwards; }
+  .janela.saindo::backdrop { animation: fundo-sai .24s ease-in forwards; }
+  /* as imagens de baixo aparecem quando chegam na tela (e ja carregadas) */
+  .galeria figure.revelar { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+  .galeria figure.revelar.visivel { opacity: 1; transform: none; }
+}
+@keyframes janela-entra { from { opacity: 0; transform: translateY(18px) scale(.985); } }
+@keyframes fundo-entra { from { opacity: 0; } }
+@keyframes janela-sai { to { opacity: 0; transform: translateY(12px) scale(.99); } }
+@keyframes fundo-sai { to { opacity: 0; } }
 .janela-topo { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 12px 16px 12px clamp(16px, 3vw, 32px); background: var(--fundo); border-bottom: 1px solid var(--linha); }
 .janela-topo h2 { margin: 0; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem); }
 .fechar { flex: none; width: 48px; height: 48px; border-radius: 999px; border: 1px solid var(--linha-forte); background: transparent; color: var(--texto); cursor: pointer; display: grid; place-items: center; }
@@ -612,15 +626,49 @@ h3 { margin: 0 0 .4em; font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.15 var(--t
   /* Fichas dos projetos com link próprio */
   const janelas = [...document.querySelectorAll("dialog.janela")];
   let origem = null;
+  const semMovimento = matchMedia("(prefers-reduced-motion: reduce)");
+  const temObservador = "IntersectionObserver" in window;
+  /* cada imagem (menos a primeira) espera chegar na tela e terminar de carregar pra aparecer */
+  const prepararGaleria = j => {
+    const figuras = [...j.querySelectorAll(".galeria figure")].slice(1);
+    if (semMovimento.matches || !temObservador) return;
+    const mostrar = f => f.classList.add("visivel");
+    const obs = new IntersectionObserver(itens => itens.forEach(it => {
+      if (!it.isIntersecting) return;
+      obs.unobserve(it.target);
+      const img = it.target.querySelector("img");
+      if (img.complete) mostrar(it.target);
+      else { img.addEventListener("load", () => mostrar(it.target), { once: true }); img.addEventListener("error", () => mostrar(it.target), { once: true }); }
+    }), { root: j, threshold: .12 });
+    figuras.forEach(f => { f.classList.add("revelar"); f.classList.remove("visivel"); obs.observe(f); });
+    j._obs = obs;
+  };
+  /* fecha com a animacao de saida; o estado e limpo aqui (o evento "close" nem sempre dispara) */
+  const fecharJanela = j => {
+    if (!j.open || j.classList.contains("saindo")) return;
+    const terminar = () => {
+      j.classList.remove("saindo");
+      if (j._obs) { j._obs.disconnect(); j._obs = null; }
+      j.querySelectorAll(".galeria figure").forEach(f => f.classList.remove("revelar", "visivel"));
+      if (j.open) j.close();
+    };
+    if (semMovimento.matches) return terminar();
+    j.classList.add("saindo");
+    j.addEventListener("animationend", terminar, { once: true });
+    setTimeout(() => { if (j.classList.contains("saindo")) terminar(); }, 400);
+  };
   const abrirJanela = (id, deQuem) => {
     const j = document.getElementById(id);
     if (!j || j.open) return;
     origem = deQuem || null;
     j.showModal();
+    j.scrollTop = 0;   /* depois de abrir: fechada, a janela guarda a rolagem da ultima vez */
+    prepararGaleria(j);
   };
   janelas.forEach(j => {
-    j.querySelector(".fechar").addEventListener("click", () => j.close());
-    j.addEventListener("click", e => { if (e.target === j) j.close(); });
+    j.querySelector(".fechar").addEventListener("click", () => fecharJanela(j));
+    j.addEventListener("click", e => { if (e.target === j) fecharJanela(j); });
+    j.addEventListener("cancel", e => { e.preventDefault(); fecharJanela(j); });   /* Esc */
     j.addEventListener("close", () => {
       if (location.hash === "#" + j.id) history.replaceState(null, "", location.pathname + location.search);
       if (origem) origem.focus();
@@ -633,7 +681,7 @@ h3 { margin: 0 0 .4em; font: 400 clamp(1.5rem, 1.25rem + 1vw, 2rem)/1.15 var(--t
   });
   const pelaUrl = () => {
     const id = location.hash.slice(1);
-    janelas.forEach(j => { if (j.open && j.id !== id) j.close(); });
+    janelas.forEach(j => { if (j.open && j.id !== id) fecharJanela(j); });
     if (janelas.some(j => j.id === id)) abrirJanela(id);
   };
   window.addEventListener("popstate", pelaUrl);
