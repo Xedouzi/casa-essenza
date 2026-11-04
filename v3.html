@@ -6,9 +6,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Casa Essenza | Design de interiores por Thaís Alves, Cravinhos</title>
 <meta name="description" content="Design de interiores e acompanhamento de obra por Thaís Alves, em Cravinhos, SP. Projetos que partem da rotina e da história de quem mora.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#566249" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2C3326" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#566249">
+<!-- o site e sempre claro: a extensao Dark Reader nao mexe -->
+<meta name="darkreader-lock">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%236F7C60'/%3E%3Cpath%20d='M12%2030%2032%2013l20%2017M36%2031v20m0-20h11m-11%2010h12m-11%2010h13M36%2031c-7-2-15%202-16%209-1%206%205%2010%2010%206%203-2%205-5%206-7'%20fill='none'%20stroke='%23F3F1EA'%20stroke-width='2.6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,25 +38,7 @@
   --largura: 1200px;
   --gutter: clamp(16px, 4vw, 40px);
   --secao: clamp(64px, 9vw, 120px);
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fundo: #1B1E17;
-    --campo: #2C3326;
-    --sobre-campo: #E8EDE1;
-    --campo-suave: #C4CCB7;
-    --nevoa: #232820;
-    --texto: #E8EDE1;
-    --texto-suave: #BFC6B4;
-    --porta: #E8B54A;
-    --sobre-porta: #1B1E17;
-    --destaque: #B9C4A8;
-    --linha: #39402F;
-    --linha-forte: #7E8873;
-    --a-preencher: #5A4B00;
-    --a-preencher-texto: #FFF3B0;
-  }
+  color-scheme: only light;
 }
 @font-face { font-family: "Italiana reserva"; src: local("Georgia"); size-adjust: 97.2%; }
 @font-face { font-family: "Manrope reserva"; src: local("Arial"); size-adjust: 101.5%; }
